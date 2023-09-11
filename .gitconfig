@@ -1,0 +1,10 @@
+[user]
+    name = Jeison Peguero
+    email = jpeguerocastro@gmail.com
+[credential]
+    helper = store
+[core]
+    editor = vim
+    autocrlf = input
+[init]
+    defaultBranch = main

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#ff0000",
+          "style": "plain",
+          "template": " admin ",
+          "type": "root"
+        },
+        {
+          "foreground": "#ffff00",
+          "properties": {
+            "style": "folder",
+            "home_icon": ""
+          },
+          "style": "plain",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#f54d27",
+          "properties": {
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true
+          },
+          "style": "plain",
+          "template": "<#ffffff></> {{ .UpstreamIcon }} {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} 󰆓 {{ .StashCount }}{{ end }} <#ffffff></> ",
+          "type": "git"
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#ffe974",
+          "template": "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} "
+        },
+        {
+          "type": "java",
+          "style": "plain",
+          "foreground": "#0a6eb6",
+          "template": " {{ .Full }} "
+        },
+        {
+          "type": "go",
+          "style": "plain",
+          "foreground": "#6ad7e5",
+          "template": " {{  .Full }} "
+        },
+        {
+          "type": "dotnet",
+          "style": "plain",
+          "foreground": "#724aff",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "node",
+          "foreground": "#23b45d",
+          "style": "plain",
+          "template": "󰎙 {{ .Full }} "
+        },
+        // {
+        //     "type": "npm",
+        //     "style": "plain",
+        //     "foreground": "#ca3736",
+        //     "template": "\ue71e {{ .Full }} "
+        // },
+        {
+          "type": "angular",
+          "style": "plain",
+          "foreground": "#dd0031",
+          "template": " {{ .Full }} "
+        },
+        {
+          "type": "exit",
+          "foreground": "#ff0000",
+          "style": "plain",
+          "template": "<#ffffff></> "
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": "󰥭 ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 2
+}

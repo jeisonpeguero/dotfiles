@@ -1,0 +1,4 @@
+[wsl2]
+memory=2GB
+processors=4
+guiApplications=false
