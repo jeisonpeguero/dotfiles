@@ -36,4 +36,4 @@ complete -f -F _dotnet_bash_complete dotnet
 
 alias cdcode="cd /d/Code"
 alias db-services="docker compose -p db-services -f /d/Code/docker/db-services.yml"
-alias cut-silence="auto-editor.exe --margin 0.2sec --export premiere"
+alias cut-silence="auto-editor.exe --margin 0.3sec --export premiere"
