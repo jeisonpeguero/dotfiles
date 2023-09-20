@@ -2,3 +2,4 @@
 memory=2GB
 processors=4
 guiApplications=false
+networkingMode=mirrored
