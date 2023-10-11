@@ -48,7 +48,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/cust
 git clone https://github.com/Aloxaf/fzf-tab.git ~/.oh-my-zsh/custom/plugins/fzf-tab
 
 # BAT
-BAT_VERSION="0.23.0"
+BAT_VERSION="0.24.0"
 wget "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb"
 sudo dpkg -i "bat_${BAT_VERSION}_amd64.deb"
 rm "bat_${BAT_VERSION}_amd64.deb"
@@ -56,13 +56,13 @@ bat cache --build
 ln -s ~/.dotfiles/.bat.conf ~/.bat.conf
 
 # LSD
-LSD_VERSION="0.23.1"
-wget "https://github.com/lsd-rs/lsd/releases/download/${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb"
+LSD_VERSION="1.0.0"
+wget "https://github.com/lsd-rs/lsd/releases/download/v${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb"
 sudo dpkg -i "lsd_${LSD_VERSION}_amd64.deb"
 rm "lsd_${LSD_VERSION}_amd64.deb"
 
 # NVM y NodeJS
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
 nvm install node #latest
 nvm install --lts
@@ -99,7 +99,7 @@ sudo apt install -y php8.1 apache2 php8.1-bcmath php8.1-curl php8.1-mbstring php
 sudo chown -R jeison.jeison /var/www
 cd /var/www/html
 vim index.php
-sudo ln -s ~/.dotfiles/etc/php/8.0/apache2/php.ini /etc/php/8.0/apache2/php.ini
+sudo ln -s ~/.dotfiles/etc/php/8.1/apache2/php.ini /etc/php/8.1/apache2/php.ini
 
 # PHP Composer
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
