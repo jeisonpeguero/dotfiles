@@ -28,8 +28,8 @@ Import-Module -Name PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 #Starship
-$ENV:STARSHIP_CONFIG = '~\.dotfiles\.starship\config.toml'
-$ENV:STARSHIP_CACHE = '~\.starship\cache'
+$ENV:STARSHIP_CONFIG = "$ENV:USERPROFILE\.dotfiles\.starship\config.toml"
+$ENV:STARSHIP_CACHE = "$ENV:USERPROFILE\.starship\cache"
 
 # Utilities
 # function which ($command) {
