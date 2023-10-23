@@ -1,3 +1,6 @@
+# Colocar en el archivo $PROFILE C:\Users\jeison\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+# . "$ENV:USERPROFILE\.dotfiles\powershell\personal.ps1"
+
 # set PowerShell to UTF-8
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
@@ -8,6 +11,8 @@ Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias touch ni
 Set-Alias which Get-Command
+# Set-Alias cdcode goCode
+function cdcode { set-location "D:\Code\" }
 
 # Icons
 #Install-Module -Name Terminal-Icons -Repository PSGallery
