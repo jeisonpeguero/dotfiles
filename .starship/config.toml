@@ -24,6 +24,10 @@ symbol = " "
 [conda]
 symbol = " "
 
+[dotnet]
+symbol = "󰘐 "
+format ='via [$symbol($tfm )]($style)'
+
 [dart]
 symbol = " "
 
