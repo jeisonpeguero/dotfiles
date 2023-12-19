@@ -9,10 +9,11 @@ Set-Alias ll ls
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
+Set-Alias vim 'C:\Program Files\Git\usr\bin\vim.exe'
 Set-Alias touch ni
 Set-Alias which Get-Command
-# Set-Alias cdcode goCode
 function cdcode { set-location "D:\Code\" }
+function ae { auto-editor.exe --margin 0.3sec --export resolve $args }
 
 # Icons
 #Install-Module -Name Terminal-Icons -Repository PSGallery
