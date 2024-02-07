@@ -82,6 +82,7 @@ plugins=(
     composer
     deno
     golang
+    kubectl
     node
     npm
     vscode
@@ -96,7 +97,7 @@ FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --tabstop=4'
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="$PATH:/opt/homebrew/bin:$HOME/.dotnet/tools:$HOME/.config/composer/vendor/bin"
+export PATH="$PATH:$HOME/.dotnet/tools:/mnt/c/Windows/:/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/Users/jeison/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/jeison/AppData/Local/Microsoft/WindowsApps:/mnt/c/Windows/System32:$HOME/.config/composer/vendor/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -143,10 +144,6 @@ export BAT_CONFIG_PATH="$HOME/.bat.conf"
 #GOLANG
 export GOPATH="$HOME/.go"
 
-#NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
-#HOMEBREW
-#export PATH="/opt/homebrew/bin:$PATH"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
