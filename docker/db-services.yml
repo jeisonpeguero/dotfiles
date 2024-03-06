@@ -6,86 +6,86 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     user: root
     ports:
-      - "1434:1433"
+      - '1434:1433'
     environment:
       ACCEPT_EULA: Y
       MSSQL_PID: Developer
       MSSQL_SA_PASSWORD: sa_passw0rd
       TZ: America/Santo_Domingo
     volumes:
-      - "~/.docker-volumes/mssql-server-2022-data:/var/opt/mssql/data"
+      - '~/.docker-volumes/mssql-server-2022-data:/var/opt/mssql/data'
   mssql-server-2019:
     container_name: mssql-server-2019
     image: mcr.microsoft.com/mssql/server:2019-latest
     user: root
     ports:
-      - "1433:1433"
+      - '1433:1433'
     environment:
       ACCEPT_EULA: Y
       MSSQL_PID: Developer
       MSSQL_SA_PASSWORD: sa_passw0rd
       TZ: America/Santo_Domingo
     volumes:
-      - "~/.docker-volumes/mssql-server-2019-data:/var/opt/mssql/data"
+      - '~/.docker-volumes/mssql-server-2019-data:/var/opt/mssql/data'
   postgres:
     container_name: postgres
-    image: postgres:15
+    image: postgres:16
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     volumes:
-      - "~/.docker-volumes/postgres-data:/var/lib/postgresql/data"
+      - '~/.docker-volumes/postgres-data:/var/lib/postgresql/data'
   mysql-server-8:
     container_name: mysql-server-8
     image: mysql:8
     ports:
-      - "3306:3306"
+      - '3306:3306'
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_spanish_ci --innodb_autoinc_lock_mode=0
     environment:
       MYSQL_ROOT_PASSWORD: root
       TZ: America/Santo_Domingo
     volumes:
-      - "~/.docker-volumes/mysql-server-8-data:/var/lib/mysql"
+      - '~/.docker-volumes/mysql-server-8-data:/var/lib/mysql'
   mysql-server-5:
     container_name: mysql-server-5
     image: mysql:5
     ports:
-      - "3307:3306"
+      - '3307:3306'
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_spanish_ci --innodb_autoinc_lock_mode=0
     environment:
       MYSQL_ROOT_PASSWORD: root
       TZ: America/Santo_Domingo
     volumes:
-      - "~/.docker-volumes/mysql-server-5-data:/var/lib/mysql"
+      - '~/.docker-volumes/mysql-server-5-data:/var/lib/mysql'
   redis-server-6:
     container_name: redis-server-6
     image: redis:6
     ports:
-      - "6379:6379"
+      - '6379:6379'
     command: bash -c "touch -a /usr/local/etc/redis/redis.conf && redis-server /usr/local/etc/redis/redis.conf"
     volumes:
-      - "~/.docker-volumes/redis-server-6/conf:/usr/local/etc/redis"
-      - "~/.docker-volumes/redis-server-6/data:/data"
+      - '~/.docker-volumes/redis-server-6/conf:/usr/local/etc/redis'
+      - '~/.docker-volumes/redis-server-6/data:/data'
   redis-server-7:
     container_name: redis-server-7
     image: redis:7
     ports:
-      - "6380:6379"
+      - '6380:6379'
     command: bash -c "touch -a /usr/local/etc/redis/redis.conf && redis-server /usr/local/etc/redis/redis.conf"
     volumes:
-      - "~/.docker-volumes/redis-server-7/conf:/usr/local/etc/redis"
-      - "~/.docker-volumes/redis-server-7/data:/data"
+      - '~/.docker-volumes/redis-server-7/conf:/usr/local/etc/redis'
+      - '~/.docker-volumes/redis-server-7/data:/data'
   mongodb:
     container_name: mongodb
     image: mongo:6
     ports:
-      - "27017:27017"
+      - '27017:27017'
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
     volumes:
-      - "~/.docker-volumes/mongodb/data:/data"
-      - "~/.docker-volumes/mongodb/conf:/etc/mongo"
+      - '~/.docker-volumes/mongodb/data:/data'
+      - '~/.docker-volumes/mongodb/conf:/etc/mongo'

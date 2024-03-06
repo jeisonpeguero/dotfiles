@@ -135,6 +135,8 @@ alias la='ls -a --group-dirs=first'
 alias lla='ls -la --group-dirs=first'
 alias lt='ls --tree --group-dirs=first'
 
+alias generate_hash="openssl rand -base64 256"
+alias generate_hash_512="openssl rand -base64 512"
 #BAT CONFIG
 #https://github.com/sharkdp/bat/releases
 
