@@ -137,6 +137,10 @@ alias lt='ls --tree --group-dirs=first'
 
 alias generate_hash="openssl rand -base64 256"
 alias generate_hash_512="openssl rand -base64 512"
+
+alias ovftool="/Applications/VMware\ Fusion.app/Contents/Library/VMware\ OVF\ Tool/ovftool"
+
+alias autoeditor="auto-editor --margin 0.3sec --export resolve"
 #BAT CONFIG
 #https://github.com/sharkdp/bat/releases
 
