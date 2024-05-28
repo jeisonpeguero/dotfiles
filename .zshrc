@@ -135,7 +135,8 @@ alias la='ls -a --group-dirs=first'
 alias lla='ls -la --group-dirs=first'
 alias lt='ls --tree --group-dirs=first'
 
-alias generate_hash="openssl rand -base64 256"
+alias generate_hash="openssl rand -base64"
+alias generate_hash_256="openssl rand -base64 256"
 alias generate_hash_512="openssl rand -base64 512"
 
 alias ovftool="/Applications/VMware\ Fusion.app/Contents/Library/VMware\ OVF\ Tool/ovftool"
@@ -156,3 +157,7 @@ export NVM_DIR="$HOME/.nvm"
 
 #HOMEBREW
 export PATH="/opt/homebrew/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
