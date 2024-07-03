@@ -161,6 +161,12 @@ export NVM_DIR="$HOME/.nvm"
 #HOMEBREW
 export PATH="/opt/homebrew/bin:$PATH"
 
+#DART AND FLUTTER
+export PATH="$HOME/Code/devtools/android_sdk/cmdline-tools/bin:$PATH"
+export PATH="$HOME/Code/devtools/android_sdk/emulator:$PATH"
+export PATH="$HOME/Code/devtools/flutter/bin:$PATH"
+export PATH=$HOME/.gem/bin:$PATH
+
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
