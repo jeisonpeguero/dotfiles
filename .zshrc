@@ -170,3 +170,9 @@ export PATH=$HOME/.gem/bin:$PATH
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Created by `pipx` on 2024-07-03 15:22:50
+export PATH="$PATH:/Users/jeison/.local/bin"
+
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+zstyle ':autocomplete:*' default-context history-incremental-search-backward
