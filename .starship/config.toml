@@ -2,7 +2,7 @@
 "$schema" = 'https://starship.rs/config-schema. son'
 
 # Inserta una línea en blanco entre las instrucciones del intérprete de comandos
-#add_newline = true
+add_newline = true
 
 # Reemplaza el símbolo '❯' en el prompt con ''➜'
 #[character] # El nombre del módulo que estamos configurando es 'character'
