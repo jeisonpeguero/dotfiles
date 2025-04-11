@@ -85,6 +85,7 @@ plugins=(
     npm
     vscode
     ng
+    brew
 )
 
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES

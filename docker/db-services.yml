@@ -29,7 +29,7 @@ services:
       - '~/.docker-volumes/mssql-server-2019-data:/var/opt/mssql/data'
   postgres:
     container_name: postgres
-    image: postgres:16
+    image: postgres:17
     ports:
       - '5432:5432'
     environment:
@@ -89,3 +89,11 @@ services:
     volumes:
       - '~/.docker-volumes/mongodb/data:/data'
       - '~/.docker-volumes/mongodb/conf:/etc/mongo'
+  aspire-dashboard:
+    container_name: aspire-dashboard
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:latest
+    ports:
+      - '18888:18888'
+      - '4317:18889'
+    environment:
+      DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS: 'false'

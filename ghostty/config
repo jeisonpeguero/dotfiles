@@ -1,0 +1,8 @@
+theme = catppuccin-mocha
+font-family = "FiraCode Nerd Font"
+cursor-style-blink = false
+quick-terminal-position = top
+quick-terminal-screen = mouse
+#quick-terminal-animation-duration = 0.2
+quick-terminal-autohide = true
+quick-terminal-space-behavior = remain
