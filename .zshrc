@@ -157,6 +157,7 @@ export GOPATH="$HOME/.go"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use --lts --silent
 
 #DART AND FLUTTER
 export PATH="$HOME/Code/devtools/android_sdk/cmdline-tools/bin:$PATH"
