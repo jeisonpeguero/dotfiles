@@ -159,6 +159,11 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 nvm use --lts --silent
 
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 #DART AND FLUTTER
 export PATH="$HOME/Code/devtools/android_sdk/cmdline-tools/bin:$PATH"
 export PATH="$HOME/Code/devtools/android_sdk/emulator:$PATH"
@@ -179,3 +184,8 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # zstyle ':autocomplete:*' default-context history-incremental-search-backward
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/jeison/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

@@ -49,17 +49,17 @@ services:
       TZ: America/Santo_Domingo
     volumes:
       - '~/.docker-volumes/mysql-server-8-data:/var/lib/mysql'
-  mysql-server-5:
-    container_name: mysql-server-5
-    image: mysql:5
-    ports:
-      - '3307:3306'
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_spanish_ci --innodb_autoinc_lock_mode=0
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      TZ: America/Santo_Domingo
-    volumes:
-      - '~/.docker-volumes/mysql-server-5-data:/var/lib/mysql'
+  # mysql-server-5:
+  #   container_name: mysql-server-5
+  #   image: mysql:5
+  #   ports:
+  #     - '3307:3306'
+  #   command: --character-set-server=utf8mb4 --collation-server=utf8mb4_spanish_ci --innodb_autoinc_lock_mode=0
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     TZ: America/Santo_Domingo
+  #   volumes:
+  #     - '~/.docker-volumes/mysql-server-5-data:/var/lib/mysql'
   redis-server-6:
     container_name: redis-server-6
     image: redis:6
