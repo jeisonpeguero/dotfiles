@@ -71,6 +71,7 @@ ssh_symbol = " "
 
 [java]
 symbol = " "
+style = "red bold"
 
 [julia]
 symbol = " "
