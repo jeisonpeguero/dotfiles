@@ -1,0 +1,36 @@
+export STARSHIP_CONFIG=~/.dotfiles/starship/config.toml
+export STARSHIP_CACHE=~/.dotfiles/starship/cache
+
+alias cat="bat"
+alias ls="lsd --group-dirs=first"
+alias l="ls -l --group-dirs=first"
+alias ll="ls -l --group-dirs=first"
+alias la="ls -a --group-dirs=first"
+alias lla="ls -la --group-dirs=first"
+alias lt="ls --tree --group-dirs=first"
+
+alias generate_hash="openssl rand -base64"
+alias generate_hash_256="openssl rand -base64 256"
+alias generate_hash_512="openssl rand -base64 512"
+
+alias brew_upgrade_all="brew upgrade && brew upgrade --greedy"
+
+export BAT_CONFIG_PATH=~/.bat.conf
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+nvm use --lts --silent
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+autoload -U compinit; compinit
+source /opt/homebrew/share/fzf-tab/fzf-tab.zsh
+
+export FZF_DEFAULT_OPTS="--height=40% --border --info=inline --layout=reverse"
+
+eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
