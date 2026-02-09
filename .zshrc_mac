@@ -1,6 +1,9 @@
+# --- CONFIGURACIÓN DE RUTAS ---
 export STARSHIP_CONFIG=~/.dotfiles/starship/config.toml
 export STARSHIP_CACHE=~/.dotfiles/starship/cache
+export BAT_CONFIG_PATH=~/.bat.conf
 
+# --- ALIASES ---
 alias cat="bat"
 alias ls="lsd --group-dirs=first"
 alias l="ls -l --group-dirs=first"
@@ -8,29 +11,50 @@ alias ll="ls -l --group-dirs=first"
 alias la="ls -a --group-dirs=first"
 alias lla="ls -la --group-dirs=first"
 alias lt="ls --tree --group-dirs=first"
-
 alias generate_hash="openssl rand -base64"
 alias generate_hash_256="openssl rand -base64 256"
 alias generate_hash_512="openssl rand -base64 512"
-
 alias brew_upgrade_all="brew upgrade && brew upgrade --greedy"
 
-export BAT_CONFIG_PATH=~/.bat.conf
-
+# --- NVM (Node Version Manager) ---
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 nvm use --lts --silent
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# --- CONFIGURACIÓN DE FZF (Visual y Atajos) ---
+# Activa la integración oficial (CTRL-R, CTRL-T, etc.)
+source <(fzf --zsh)
 
+export FZF_DEFAULT_OPTS="
+  --height=40%
+  --layout=reverse
+  --border
+  --info=inline
+  --color=dark
+  --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:#3a3a3a,hl+:#ffaf5f
+  --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+"
+
+# --- SISTEMA DE AUTOCOMPLETADO (Orden Crítico) ---
 autoload -U compinit; compinit
+
+# Corregir error visual %{%} y añadir colores a fzf-tab
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':fzf-tab:*' group-colors ''
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always $realpath'
+
+# --- CARGA DE PLUGINS ---
+# Importante: fzf-tab debe ir ANTES de syntax-highlighting
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/fzf-tab/fzf-tab.zsh
 
-export FZF_DEFAULT_OPTS="--height=40% --border --info=inline --layout=reverse"
+# Resaltado de sintaxis (siempre al final)
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# --- PROMPT ---
 eval "$(starship init zsh)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
