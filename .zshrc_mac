@@ -65,4 +65,4 @@ compinit
 # End of Docker CLI completions
 
 # Added by get-aspire-cli.sh
-export PATH="$HOME/.aspire/bin:$PATH"
+export PATH="$HOME/.aspire/bin:/opt/homebrew/opt/libpq/bin:$PATH"
