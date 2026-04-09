@@ -1,4 +1,4 @@
-set nonumber
+set number
 syntax enable
 set expandtab
 set shiftwidth=4
