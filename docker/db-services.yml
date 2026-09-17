@@ -89,11 +89,28 @@ services:
     volumes:
       - '~/.docker-volumes/mongodb/data:/data'
       - '~/.docker-volumes/mongodb/conf:/etc/mongo'
+  # Panel de OpenTelemetry para desarrollo: trazas, métricas y logs de cualquier app que
+  # exporte por OTLP. Reemplaza al AppHost de Aspire, que ya no se usa.
+  # Abrir en http://localhost:18888
   aspire-dashboard:
     container_name: aspire-dashboard
     image: mcr.microsoft.com/dotnet/aspire-dashboard:latest
     ports:
-      - '18888:18888'
-      - '4317:18889'
+      # Solo 127.0.0.1: el panel muestra el SQL completo, ids de usuario y de empresa.
+      # Sin ese prefijo queda expuesto a toda la red local.
+      - '127.0.0.1:18888:18888'
+      # OTLP/HTTP -> 18890 del contenedor. Es el que usa jeisoft-api.
+      - '127.0.0.1:4318:18890'
+      # OTLP/gRPC -> 18889. El protocolo por defecto del SDK de .NET, por si otra app lo usa.
+      - '127.0.0.1:4317:18889'
     environment:
-      DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS: 'false'
+      # Sin pantalla de login. Va de la mano con el bind a 127.0.0.1 de arriba.
+      DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS: 'true'
+      TZ: America/Santo_Domingo
+    # Cómo configurar una app .NET contra este panel (jeisoft-api ya lo trae en su
+    # appsettings.Development.json, que git ignora):
+    #   "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4318"
+    #   "OTEL_EXPORTER_OTLP_COMPRESSION": "none"
+    # El "none" NO es opcional: el endpoint OTLP/HTTP de este panel no descomprime gzip,
+    # revienta con InvalidProtocolBufferException y se queda vacío sin que la app reporte
+    # ningún error. Si el panel aparece sin datos: docker logs aspire-dashboard
